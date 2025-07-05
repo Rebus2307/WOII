@@ -1,3 +1,8 @@
+It seems like the provided HTML has a small issue with the `<img>` tag in the navigation bar. It's missing its closing tag and has some stray text ("fill") right after it. Also, an SVG for a logo appears to be incorrectly placed directly after the `<img>` tag, rather than within its own distinct element if it's meant to be a separate graphic, or removed if the image is sufficient.
+
+Here's the corrected and well-structured HTML:
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,13 +31,10 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navbar -->
     <nav class="bg-white shadow-md fixed w-full z-10">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="rect8.jpg" alt="Woii Studio Logo" class="h-10"> fill
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+                <img src="rect8.jpg" alt="Woii Studio Logo" class="h-10">
                 <span class="ml-2 text-2xl font-bold text-[#34383B]">WebCreators</span>
             </div>
             <div class="hidden md:flex space-x-8">
@@ -50,7 +52,6 @@
                 </button>
             </div>
         </div>
-        <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4">
             <a href="#inicio" class="block py-2 text-gray-700 hover:text-[#34383B] font-medium">Inicio</a>
             <a href="#servicios" class="block py-2 text-gray-700 hover:text-[#34383B] font-medium">Servicios</a>
@@ -60,7 +61,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="inicio" class="gradient-bg pt-28 pb-20">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
@@ -89,7 +89,6 @@
         </div>
     </section>
 
-    <!-- Servicios -->
     <section id="servicios" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -97,7 +96,6 @@
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">Ofrecemos soluciones web completas para hacer crecer tu presencia online</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Servicio 1 -->
                 <div class="bg-white rounded-xl shadow-lg p-8 transition duration-300 card-hover">
                     <div class="bg-[#E5E7EB] rounded-full w-16 h-16 flex items-center justify-center mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#34383B]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -128,7 +126,6 @@
                     </ul>
                 </div>
 
-                <!-- Servicio 2 -->
                 <div class="bg-white rounded-xl shadow-lg p-8 transition duration-300 card-hover">
                     <div class="bg-[#E5E7EB] rounded-full w-16 h-16 flex items-center justify-center mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#34383B]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -159,7 +156,6 @@
                     </ul>
                 </div>
 
-                <!-- Servicio 3 -->
                 <div class="bg-white rounded-xl shadow-lg p-8 transition duration-300 card-hover">
                     <div class="bg-[#E5E7EB] rounded-full w-16 h-16 flex items-center justify-center mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#34383B]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -193,7 +189,6 @@
         </div>
     </section>
 
-    <!-- Proyectos -->
     <section id="proyectos" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -202,7 +197,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Proyecto 1 -->
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg transition duration-300 card-hover">
                     <div class="h-48 bg-[#34383B] text-white flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -220,7 +214,6 @@
                     </div>
                 </div>
 
-                <!-- Proyecto 2 -->
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg transition duration-300 card-hover">
                     <div class="h-48 bg-purple-600 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -238,7 +231,6 @@
                     </div>
                 </div>
 
-                <!-- Proyecto 3 -->
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg transition duration-300 card-hover">
                     <div class="h-48 bg-blue-600 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -259,7 +251,6 @@
         </div>
     </section>
 
-    <!-- Precios -->
     <section id="precios" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -268,7 +259,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Plan Básico -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-300 card-hover border border-gray-200">
                     <div class="p-8">
                         <h3 class="text-2xl font-bold text-[#34383B] mb-4">Plan Básico</h3>
@@ -314,11 +304,10 @@
                                 <span>Mantenimiento mensual</span>
                             </li>
                         </ul>
-                        <a href="#contacto" class="block w-full bg-[#34383B] text-white text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-[#2C3033] transition duration-300">Seleccionar plan</a>
+                        <a href="#contacto" class="block w-full bg-[#34383B] text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-[#2C3033] transition duration-300">Seleccionar plan</a>
                     </div>
                 </div>
 
-                <!-- Plan Profesional -->
                 <div class="bg-[#34383B] text-white rounded-xl shadow-xl overflow-hidden transform scale-105 z-10 transition duration-300 card-hover">
                     <div class="bg-indigo-700 py-4">
                         <p class="text-center text-white font-semibold">Más popular</p>
@@ -371,7 +360,6 @@
                     </div>
                 </div>
 
-                <!-- Plan Premium -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-300 card-hover border border-gray-200">
                     <div class="p-8">
                         <h3 class="text-2xl font-bold text-[#34383B] mb-4">Plan Premium</h3>
@@ -417,7 +405,7 @@
                                 <span>Estrategia de marketing digital</span>
                             </li>
                         </ul>
-                        <a href="#contacto" class="block w-full bg-[#34383B] text-white text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-[#2C3033] transition duration-300">Seleccionar plan</a>
+                        <a href="#contacto" class="block w-full bg-[#34383B] text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-[#2C3033] transition duration-300">Seleccionar plan</a>
                     </div>
                 </div>
             </div>
@@ -425,7 +413,6 @@
     </section>
 
 
-    <!-- Contacto -->
     <section id="contacto" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -463,7 +450,7 @@
                             <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
                         </div>
                         <div>
-                            <button type="submit" class="w-full bg-[#34383B] text-white text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#2C3033] transition duration-300">Enviar mensaje</button>
+                            <button type="submit" class="w-full bg-[#34383B] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#2C3033] transition duration-300">Enviar mensaje</button>
                         </div>
                     </form>
                 </div>
@@ -510,4 +497,7 @@
                 </div>
             </div>
         </div>
-    </section> 
+    </section>
+</body>
+</html>
+```

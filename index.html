@@ -158,7 +158,7 @@
                                     <span>Copia de seguridad (nube, verificación mensual)</span>
                                 </li>
                                 <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#34383B] mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <svg xmlns="http://www.w3.com/2000/svg" class="h-5 w-5 text-[#34383B] mr-2" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                                     </svg>
                                     <span>Actualizaciones de contenido (texto, imágenes/banners, precios)</span>
@@ -251,22 +251,22 @@
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">¿Listo para impulsar tu negocio online? Ponte en contacto con nosotros.</p>
             </div>
             <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8 md:p-12">
-                <form action="#" method="POST" class="space-y-6">
+                <form id="contact-form" class="space-y-6">
                     <div>
                         <label for="name" class="block text-lg font-medium text-gray-700">Nombre Completo</label>
-                        <input type="text" name="name" id="name" autocomplete="name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#34383B] focus:border-[#34383B] text-lg" placeholder="Tu nombre">
+                        <input type="text" name="name" id="name" autocomplete="name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#34383B] focus:border-[#34383B] text-lg" placeholder="Tu nombre" required>
                     </div>
                     <div>
                         <label for="email" class="block text-lg font-medium text-gray-700">Correo Electrónico</label>
-                        <input type="email" name="email" id="email" autocomplete="email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#34383B] focus:border-[#34383B] text-lg" placeholder="tu.email@ejemplo.com">
+                        <input type="email" name="email" id="email" autocomplete="email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#34383B] focus:border-[#34383B] text-lg" placeholder="tu.email@ejemplo.com" required>
                     </div>
                     <div>
                         <label for="phone" class="block text-lg font-medium text-gray-700">Número de Teléfono (Opcional)</label>
-                        <input type="tel" name="phone" id="phone" autocomplete="tel" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#34383B] focus:border-[#34383B] text-lg" placeholder="+1 234 567 8900">
+                        <input type="tel" name="phone" id="phone" autocomplete="tel" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#34383B] focus:border-[#34383B] text-lg" placeholder="+52 55 7485 7116">
                     </div>
                     <div>
                         <label for="message" class="block text-lg font-medium text-gray-700">Tu Mensaje</label>
-                        <textarea id="message" name="message" rows="5" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#34383B] focus:border-[#34383B] text-lg" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        <textarea id="message" name="message" rows="5" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#34383B] focus:border-[#34383B] text-lg" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
                     </div>
                     <div>
                         <button type="submit" class="w-full flex justify-center py-3 px-6 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-[#34383B] hover:bg-[#2C3033] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#34383B] transition duration-300">
@@ -304,7 +304,7 @@
                         </div>
                         <div class="ml-4">
                             <h4 class="font-medium text-white">Teléfono</h4>
-                            <p class="text-gray-400">+52 55 1234 5678</p>
+                            <p class="text-gray-400">+52 1 55 7485 7116</p>
                         </div>
                     </div>
                     <div class="flex items-start">
@@ -334,6 +334,36 @@
             } else {
                 mobileMenu.classList.add('hidden');
             }
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previene el envío normal del formulario
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Número de teléfono de WhatsApp (incluyendo el código de país)
+            const whatsappNumber = '5215574857116'; // Sin signos ni espacios
+
+            // Mensaje prellenado para WhatsApp
+            let whatsappMessage = `¡Hola WOII STUDIO!%0A`;
+            whatsappMessage += `Mi nombre es: ${encodeURIComponent(name)}%0A`;
+            whatsappMessage += `Mi correo electrónico es: ${encodeURIComponent(email)}%0A`;
+            if (phone) {
+                whatsappMessage += `Mi número de teléfono es: ${encodeURIComponent(phone)}%0A`;
+            }
+            whatsappMessage += `Mensaje:%0A${encodeURIComponent(message)}`;
+
+            // Construir la URL de WhatsApp
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+            // Redirigir al usuario a WhatsApp
+            window.open(whatsappURL, '_blank');
+
+            // Opcional: Limpiar el formulario después de enviar
+            this.reset();
         });
     </script>
 </body>
